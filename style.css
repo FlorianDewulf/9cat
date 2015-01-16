@@ -110,6 +110,7 @@ nav > ul li:hover a {
 
 /*
 ** Trick pour avoir la vidéo en responsive venant de : http://www.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/
+** Modifié pour notre affichage
 */
 
 .photo figure .video {
@@ -118,6 +119,10 @@ nav > ul li:hover a {
   padding-top: 35px;
   height: 0;
   overflow: hidden;
+  margin-bottom: 20px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .photo figure .video iframe {
@@ -128,7 +133,11 @@ nav > ul li:hover a {
   height: 100%;
 }
 
-.photo figure img, .photo figure iframe {
+/*
+** ---
+*/
+
+.photo figure img {
   max-width: 90%;
 }
 
@@ -168,10 +177,9 @@ hr {
 footer {
   margin-top: 30px;
   border-top: 3px groove #FF5827;
-  min-height: 100px;
+  min-height: 30px;
   width: 100%;
   background: #333;
-  box-shadow: inset 0px -12px 12px 6px black;
   padding: 15px;
 }
 

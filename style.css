@@ -202,7 +202,8 @@ footer {
   min-height: 30px;
   width: 100%;
   background: #333;
-  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 footer address, footer p {

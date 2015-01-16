@@ -4,7 +4,7 @@
 }
 
 html, body {
-  height: 100%;
+  min-height: 100%;
 }
 
 a {
@@ -17,11 +17,14 @@ body {
 }
 
 section {
-  background: #EEE;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  margin-top: 15px;
+  background: #FFDE88;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
-  height: 100%;
+  min-height: 100%;
 }
 
 nav {
@@ -40,7 +43,7 @@ nav a, nav span {
 
 .title {
   padding-left: 50px;
-  padding-right: 100px;
+  padding-right: 7%;
   font-family: Impact;
   font-size: 20px;
   vertical-align: text-bottom;
@@ -85,4 +88,40 @@ nav > ul li:hover a {
 .clr {
   clear: both;
   display: none;
+}
+
+.photo {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo figure {
+  background: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.photo figure, .photo figure img {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 90%;
+}
+
+.photo figure figcaption {
+  width: 82.5%;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+}
+
+.photo figure figcaption p.comment {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.photo figure figcaption p.info {
+  text-align: right;
 }

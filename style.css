@@ -92,6 +92,16 @@ nav > ul li.active {
   border-bottom: 3px solid #00A6CD;
 }
 
+.hamburger {
+  display: none;
+  position: relative;
+}
+
+.hamburger img {
+  width: 48px;
+  height: 48px;
+}
+
 .clr, .clr:before, .clr:after {
   clear: both;
   display: none;
@@ -107,6 +117,9 @@ nav > ul li.active {
   text-align: left;
   font-weight: bold;
   font-family: fantasy;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .photo .user:first-letter {
@@ -216,7 +229,75 @@ footer address, footer p {
 }
 
 @media (max-width: 500px) {
-  body {
-    background: red;
+  .hamburger {
+    display: block;
+    text-align: right;
+  }
+
+  .hamburger img {
+    background: white;
+    padding: 5px;
+  }
+
+  .hamburger nav {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  nav {
+    max-height: 0px;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+
+  nav > ul {
+    height: auto;
+    display: block;
+  }
+
+  .hamburger li {
+    padding: 2px;
+    border: 0;
+  }
+
+  .hamburger nav {
+    background: #EEE;
+    border: #666;
+    width: 200px;
+  }
+
+  .hamburger:hover nav {
+    display: block;
+    height: auto;
+    max-height: 800px;
+    transition: max-height 2s linear;
+    -webkit-transition: max-height 2s linear;
+    border: 1px solid #333;
+  }
+
+  nav .title, nav ul li, nav .login {
+    position: relative;
+    float: none;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .hamburger a {
+    color: #333;
+  }
+
+  .hamburger nav > ul li.active {
+    border: 0;
+    height: 60px;
+  }
+
+  .hamburger nav > ul li.active a {
+    color: #00A6CD;
   }
 }

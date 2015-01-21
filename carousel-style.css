@@ -3,7 +3,7 @@
 .caroussel {
   width: 600px;
   height: 250px;
-  background: #993333;
+  background: white;
   position: relative;
   overflow: hidden;
 }
@@ -64,4 +64,5 @@
 
 .shortlink .center div:hover {
   background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
 }

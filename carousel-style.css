@@ -6,7 +6,7 @@ html, body {
 .caroussel {
   width: 80%;
   overflow: hidden;
-  height: 500px;
+  max-height: 500px;
   margin-left: auto;
   margin-right: auto;
   background: white;
@@ -44,14 +44,13 @@ html, body {
 }
 
 .shortlink {
-  z-index: 25;
-  position:absolute;
-  bottom: 0;
-  left: 42%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .shortlink .center {
-  width: 220px;
+  width: 240px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -64,10 +63,12 @@ html, body {
   margin-left: 10px;
   margin-right: 10px;
   display: inline-block;
+  border: 3px orange solid;
+  margin-top: 5px;
 }
 
 .shortlink .center div:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 232, 0, 0.56);
   cursor: pointer;
 }
 
@@ -75,13 +76,13 @@ html, body {
   position: absolute;
   text-align: center;
   top: 0;
+  bottom: 0;
   z-index: 20;
   color: white;
   font-weight: bold;
   width: 30px;
   background: rgba(255, 255, 255, 0.3);
-  height: 500px;
-  line-height: 500px;
+  max-height: 500px;
   font-size: 30px;
   cursor: pointer;
 }
@@ -92,4 +93,11 @@ html, body {
 
 .arrow #right-arrow {
   right: 0;
+}
+
+.arrow #right-arrow span, .arrow #left-arrow span {
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  left: 0;
 }

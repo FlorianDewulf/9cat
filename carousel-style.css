@@ -6,7 +6,7 @@ html, body {
 .caroussel {
   width: 80%;
   overflow: hidden;
-  height: 300px;
+  height: 500px;
   margin-left: auto;
   margin-right: auto;
   background: white;
@@ -71,7 +71,7 @@ html, body {
   cursor: pointer;
 }
 
-.arrow .right-arrow, .arrow .left-arrow {
+.arrow #right-arrow, .arrow #left-arrow {
   position: absolute;
   text-align: center;
   top: 0;
@@ -80,15 +80,16 @@ html, body {
   font-weight: bold;
   width: 30px;
   background: rgba(255, 255, 255, 0.3);
-  height: 300px;
-  line-height: 300px;
+  height: 500px;
+  line-height: 500px;
   font-size: 30px;
+  cursor: pointer;
 }
 
-.arrow .left-arrow {
+.arrow #left-arrow {
   left: 0;
 }
 
-.arrow .right-arrow {
+.arrow #right-arrow {
   right: 0;
 }

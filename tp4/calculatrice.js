@@ -36,7 +36,7 @@ function Calculatrice(nb) {
   }
 
   this.div = function(number) {
-    if (typeof number !== "number" || (typeof number === "number" && nb != 0))
+    if (typeof number !== "number" || (typeof number === "number" && nb == 0))
       throw new Error("Opération impossible : un nombre différent de zéro est attendu en paramètre");
     this.result /= parseFloat(number);
     return this;
@@ -66,13 +66,11 @@ function Calculatrice(nb) {
 
   this.factorielle = function() {
     if (this.result >= 0) {
-      if (tmp >= 2) {
-        var res = 1;
-        for (var i = this.result ; i > 1 ; i--) {
-          res *= i;
-        }
-        this.result = res;
+      var res = 1;
+      for (var i = this.result ; i > 1 ; i--) {
+        res *= i;
       }
+      this.result = res;
     } else {
       throw new Error("Opération impossible : un nombre est attendu en mémoire");
     }

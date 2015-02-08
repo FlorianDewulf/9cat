@@ -1,7 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Calculatrice UI</title>
+    <link rel="stylesheet" href="calculatrice.css" />
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="calculatrice.js"></script>
+    <script src="script.js"></script>
   </head>
   <body>
+    <main>
+      <p id="result"></p>
+      <div class="clearfix">
+        <div class="mid-block">
+          <span data-type="attribute" data-item="1">1</span>
+          <span data-type="attribute" data-item="2">2</span>
+          <span data-type="attribute" data-item="3">3</span>
+          <span data-type="attribute" data-item="4">4</span>
+          <span data-type="attribute" data-item="5">5</span>
+          <span data-type="attribute" data-item="6">6</span>
+          <span data-type="attribute" data-item="7">7</span>
+          <span data-type="attribute" data-item="8">8</span>
+          <span data-type="attribute" data-item="9">9</span>
+          <span data-type="attribute" data-item="0">0</span>
+          <span data-type="attribute" data-item=".">.</span>
+          <span data-type="function" data-item="negative">+/-</span>
+        </div>
+        <div class="mid-block">
+          <span data-type="function" data-item="add">+</span>
+          <span data-type="function" data-item="sub">-</span>
+          <span data-type="function" data-item="mult">*</span>
+          <span data-type="function" data-item="div">/</span>
+          <span data-type="function" data-item="setMemory">M+</span>
+          <span data-type="function" data-item="getMemory">MR</span>
+          <span data-type="function" data-item="sin">sin</span>
+          <span data-type="function" data-item="cos">cos</span>
+          <span data-type="function" data-item="tan">tan</span>
+          <span data-type="function" data-item="resultat">=</span>
+          <span data-type="function" data-item="factorielle">!</span>
+        </div>
+      </div>
+      <p id="coordonnee"></p>
+    </main>
   </body>
 </html>

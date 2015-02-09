@@ -2,6 +2,10 @@ function Calculatrice(nb) {
   this.memory = 0;
   this.result = (typeof nb === "number") ? nb : 0;
 
+  this.clear = function() {
+    this.result = 0;
+  }
+
   this.getMemory = function() {
     return this.memory;
   }
@@ -22,6 +26,8 @@ function Calculatrice(nb) {
   }
 
   this.add = function(number) {
+    console.log(number);
+    console.log(parseFloat(number));
     if (typeof number !== "number")
       throw new Error("Opération impossible : un nombre est attendu en paramètre");
     this.result += parseFloat(number);

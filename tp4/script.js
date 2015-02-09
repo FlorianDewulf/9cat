@@ -20,7 +20,6 @@ launchGeoloc = function() {
 }
 
 toFloat = function(str) {
-  console.log(str);
   if (str == "") {
     return 0;
   } else {
@@ -50,7 +49,8 @@ $(document).ready(function() {
             calc = new Calculatrice(toFloat(number));
           }
 
-          if (futur_function != null && $(this).attr("data-item") != "getMemory" && $(this).attr("data-item") != "setMemory") {
+          if (futur_function != null && $(this).attr("data-item") != "negative" &&
+            $(this).attr("data-item") != "getMemory" && $(this).attr("data-item") != "setMemory") {
             calc[futur_function](toFloat(number));
             futur_function = null;
           }
@@ -58,6 +58,12 @@ $(document).ready(function() {
               $(this).attr("data-item") == "tan" || $(this).attr("data-item") == "resultat" ||
               $(this).attr("data-item") == "factorielle") {
             calc[$(this).attr("data-item")]();
+          } else if ($(this).attr("data-item") == "clear") {
+            number = "";
+            futur_function = null;
+            calc = null;
+            $("#result").html(number);
+            return;
           } else if ($(this).attr("data-item") == "negative") {
             number = (toFloat(number) * -1).toString();
             $("#result").html(number);

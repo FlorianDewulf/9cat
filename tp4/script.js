@@ -50,7 +50,7 @@ $(document).ready(function() {
             calc = new Calculatrice(toFloat(number));
           }
           if (wasclear == true) {
-            calc.result = toFloat(number);
+            calc.result = toFloat(($(this).attr("data-item") == "getMemory") ? calc.getMemory() : number);
             wasclear = false;
           }
 

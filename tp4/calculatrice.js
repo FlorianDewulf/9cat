@@ -26,8 +26,6 @@ function Calculatrice(nb) {
   }
 
   this.add = function(number) {
-    console.log(number);
-    console.log(parseFloat(number));
     if (typeof number !== "number")
       throw new Error("Opération impossible : un nombre est attendu en paramètre");
     this.result += parseFloat(number);

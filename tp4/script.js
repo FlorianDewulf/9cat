@@ -20,7 +20,7 @@ launchGeoloc = function() {
 }
 
 toFloat = function(str) {
-  if (parseFloat(str) == NaN) {
+  if (isNaN(parseFloat(str))) {
     return 0;
   } else {
     return parseFloat(str);
@@ -48,6 +48,7 @@ $(document).ready(function() {
           if (calc == null && $(this).attr("data-item") != "negative") {
             calc = new Calculatrice(toFloat(number));
           }
+          console.log(calc);
 
           if (futur_function != null && $(this).attr("data-item") != "negative" &&
             $(this).attr("data-item") != "getMemory" && $(this).attr("data-item") != "setMemory") {

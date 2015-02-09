@@ -48,7 +48,6 @@ $(document).ready(function() {
           if (calc == null && $(this).attr("data-item") != "negative") {
             calc = new Calculatrice(toFloat(number));
           }
-          console.log(calc);
 
           if (futur_function != null && $(this).attr("data-item") != "negative" &&
             $(this).attr("data-item") != "getMemory" && $(this).attr("data-item") != "setMemory") {

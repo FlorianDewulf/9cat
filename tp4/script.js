@@ -90,6 +90,9 @@ $(document).ready(function() {
         }
       } catch (e) {
         $("#error").html(e.message);
+        number = "";
+        futur_function = null;
+        $("#result").html(calc.resultat());
       }
     });
   });

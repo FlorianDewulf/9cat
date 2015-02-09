@@ -32,6 +32,7 @@ $(document).ready(function() {
   var calc = null;
   var number = "";
   var futur_function = null;
+  var wasclear = false;
 
   $("span").each(function() {
     $(this).click(function() {
@@ -48,6 +49,10 @@ $(document).ready(function() {
           if (calc == null && $(this).attr("data-item") != "negative") {
             calc = new Calculatrice(toFloat(number));
           }
+          if (wasclear == true) {
+            calc.result = toFloat(number);
+            wasclear = false;
+          }
 
           if (futur_function != null && $(this).attr("data-item") != "negative" &&
             $(this).attr("data-item") != "getMemory" && $(this).attr("data-item") != "setMemory") {
@@ -61,7 +66,8 @@ $(document).ready(function() {
           } else if ($(this).attr("data-item") == "clear") {
             number = "";
             futur_function = null;
-            calc = null;
+            calc.clear();
+            wasclear = true;
             $("#result").html(number);
             return;
           } else if ($(this).attr("data-item") == "negative") {

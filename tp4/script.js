@@ -20,7 +20,7 @@ launchGeoloc = function() {
 }
 
 toFloat = function(str) {
-  if (str == "") {
+  if (parseFloat(str) == NaN) {
     return 0;
   } else {
     return parseFloat(str);

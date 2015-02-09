@@ -16,12 +16,18 @@ span {
   text-align: center;
 }
 
-#result, #coordonnee {
+#result, #coordonnee, #error {
   width: 380px;
   background: rgb(194, 194, 194);
   height: 30px;
   line-height: 30px;
   color: #333;
+}
+
+div#error {
+  color: red;
+  height: auto;
+  line-height: auto;
 }
 
 .clearfix:after {

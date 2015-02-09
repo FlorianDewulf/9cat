@@ -42,7 +42,7 @@ function Calculatrice(nb) {
   }
 
   this.div = function(number) {
-    if (typeof number !== "number" || (typeof number === "number" && nb == 0))
+    if (typeof number !== "number" || (typeof number === "number" && number == 0))
       throw new Error("Opération impossible : un nombre différent de zéro est attendu en paramètre");
     this.result /= parseFloat(number);
     return this;

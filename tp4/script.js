@@ -89,7 +89,7 @@ $(document).ready(function() {
           $("#result").html(calc.resultat());
         }
       } catch (e) {
-        console.log(e.message)
+        $("#error").html(e.message);
       }
     });
   });

@@ -10,8 +10,8 @@ getTasks = function() {
         url: host + "tasks",
         type: "GET"
     }).done(function (msg) {
-        //  console.log(msg);
-        console.log("ok");
+          console.log(msg);
+        //console.log("ok");
     }).fail(function () {
             alert("error");
         });
@@ -19,11 +19,19 @@ getTasks = function() {
 
 addTask = function(task)
 {
+    var newTask = {
+        task : task
+    }
+
+    console.log(JSON.stringify(newTask));
     var request = $.ajax({
         url: host + "tasks",
-        type: "POST"
+        type: "POST",
+        dataType : "json",
+        contentType : "application/json",
+        data : JSON.stringify(newTask)
     }).done(function (msg) {
-        //  console.log(msg);
+
         console.log("ok");
     }).fail(function () {
         alert("error");

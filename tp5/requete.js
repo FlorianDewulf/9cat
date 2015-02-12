@@ -1,11 +1,17 @@
 
 var host = "http://127.0.0.1:5000/"
 
-$( document ).ready(function() {
+$(document).ready(function() {
    getTasks();
     $("#loading").hide();
     $("#block_content").show();
+
+    $("#task_new").click(function() {
+        $('#new-wrapper').addClass('show-wrapper');
+    });
+
 });
+
 
 getTasks = function() {
     var request = $.ajax({

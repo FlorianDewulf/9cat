@@ -23,7 +23,6 @@ addTask = function(task)
         task : task
     }
 
-    console.log(JSON.stringify(newTask));
     var request = $.ajax({
         url: host + "tasks",
         type: "POST",
@@ -32,6 +31,39 @@ addTask = function(task)
         data : JSON.stringify(newTask)
     }).done(function (msg) {
 
+        console.log("ok");
+    }).fail(function () {
+        alert("error");
+    });
+
+}
+
+changeTask = function(task)
+{
+    var newTask = {
+        task : task
+    }
+
+    var request = $.ajax({
+        url: host + "tasks/" + "id",
+        type: "PUT",
+        dataType : "json",
+        contentType : "application/json",
+        data : JSON.stringify(newTask)
+    }).done(function (msg) {
+        console.log("ok");
+    }).fail(function () {
+        alert("error");
+    });
+
+}
+
+deleteTask = function()
+{
+    var request = $.ajax({
+        url: host + "tasks/" + "id",
+        type: "DELETE"
+    }).done(function (msg) {
         console.log("ok");
     }).fail(function () {
         alert("error");

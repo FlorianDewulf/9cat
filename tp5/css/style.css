@@ -64,16 +64,19 @@ textarea {
 }
 
 #new-wrapper {
-  height: 0px;
   overflow: hidden;
-  transition: height 1.5s ease;
-  -moz-transition: height 1.5s ease;
-  -o-transition: height 1.5s ease;
-  -webkit-transition: height 1.5s ease;
+  transition: height 1s ease;
+  -moz-transition: height 1s ease;
+  -o-transition: height 1s ease;
+  -webkit-transition: height 1s ease;
 }
 
-.show-wrapper {
-  height: 300px;
+.new_task > div {
+  height: 0px;
+}
+
+.new_task > .show-wrapper {
+  height: 320px;
 }
 
 .hidden {

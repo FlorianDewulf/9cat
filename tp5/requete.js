@@ -10,6 +10,19 @@ $(document).ready(function() {
         $('#new-wrapper').addClass('show-wrapper');
     });
 
+    $("#task_create").click(function() {
+
+        if (!$.trim($("input").val()) || !$.trim($("textarea").val())) {
+            alert("vide");
+        }
+        else {
+            var input = $("input").val();
+            var text = $("textarea").val();
+            var select = $('select option:selected').val()
+        }
+        
+    });
+
 });
 
 

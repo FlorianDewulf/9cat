@@ -13,14 +13,23 @@ $(document).ready(function() {
     $("#task_create").click(function() {
 
         if (!$.trim($("input").val()) || !$.trim($("textarea").val())) {
-            alert("vide");
+           // $("#error").fadeIn();
+
+            $('#error').fadeIn("slow", function() { $(this).delay(2000).fadeOut("slow"); });
         }
         else {
-            var input = $("input").val();
-            var text = $("textarea").val();
-            var select = $('select option:selected').val()
+            var title = $("input").val();
+            var content = $("textarea").val();
+            var priority = $('select option:selected').val()
+
+            var task = {
+                title : title,
+                content : content,
+                priority : priority
+            }
+            addTask(task);
         }
-        
+
     });
 
 });

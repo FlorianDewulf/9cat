@@ -83,6 +83,10 @@ textarea {
   display: none;
 }
 
+div.alert {
+  display: none;
+}
+
 /*
   Generé sur cssload.net
   - See more at: http://cssload.net/#sthash.eZ7pwNSu.dpuf

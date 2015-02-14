@@ -48,30 +48,64 @@ displayTasks = function (data){
     var list = $("<div id='list'> <div/>");
     $( "#main_block" ).append(list);
 
-
-    var tmp = data.tasks;
-    tmp.forEach(function (value, index) {
-        var id = tmp[index].id;
-        var content = tmp[index].task.content;
-        var title = tmp[index].task.title;
-        var priority = tmp[index].task.priority;
+   // console.log()
+    var tasks = data.tasks;
+   // console.log(tasks[0]);
+   // return ;
+    tasks.forEach(function (value, index) {
+        var id = value.id;
+        var content = value.task.content;
+        var title = value.task.title;
+        var priority = value.task.priority;
 
         var taskHTML = "<div class='task' id='" + id + "'> <dl class='sub-nav'> <dd class='active'><a href='#'>" + title;
 
-        taskHTML += "</a></dd> <dd class='bind-edit' id='edit-" + id +   "' ><a href='#'>Editer</a></dd> <dd class='bind-delete' id='delete-" + id + "'><a href='#'>Supprimer</a></dd>";
+        taskHTML += "</a></dd> <dd class='bind-edit' ><a href='#'>Editer</a></dd> <dd class='bind-delete'><a href='#'>Supprimer</a></dd>";
         taskHTML += "<dd class='priority-" + priority + "'></dd>";
         taskHTML +=  "</dl> <div class='panel panel-override radius'>";
         taskHTML += "<p>" + content + "</p>" + "<div id='edit_block_" + id + "' class='hidden'> <input type='text' placeholder='Title' value=''/> <textarea rows='6'></textarea>";
-        taskHTML += "<select> <option value='low'>Basse</option> <option value='medium'>Moyenne</option> <option value='high'>Haute</option> </select> </div> ";
-        taskHTML += "<button class='hidden' id='edit_task' task-id='" + id + "'>Editer</button> </div> </div>";
-        //
-        //
-        //
-        //
-        var test = "#delete-" + id;
-        console.log(test);
+        taskHTML += "<select> <option value='low'>Basse</option> <option value='medium'>Moyenne</option> <option value='high'>Haute</option> </select>  ";
+        taskHTML += "<button id='button-" + id + "'>Editer</button> </div> </div> </div>";
+
+        var test = "#" + id + " dl dd:nth-child(3)";
         $(document).on("click", test, function(){
             deleteTask(id);
+        });
+        test = "#" + id + " dl dd:nth-child(2)";
+        var tmp = "#edit_block_" + id;
+        $(document).on("click", test, function(){
+            $("#" + id + " div p").hide();
+            $(tmp + " input").attr("placeholder", title);
+            $(tmp + " textarea").val(content);
+            $(tmp).show();
+        });
+
+        $(document).on("click", "#button-" + id, function(){
+
+       //     var titleEdit = $(tmp + " input").val();
+            console.log("yop");
+            //var content = $("textarea").val();
+            //if (!$.trim(title) || !$.trim(content)) {
+            //
+            //    if (!$.trim(title)) {
+            //        $("#error").text("Le titre ne peut pas etre vide");
+            //    }
+            //    else {
+            //        $("#error").text("Le contenu ne peut pas etre vide");
+            //    }
+            //    $('#error').fadeIn("slow", function() { $(this).delay(2000).fadeOut("slow"); });
+            //}
+            //else {
+            //
+            //    var priority = $('select option:selected').val()
+            //
+            //    var task = {
+            //        title : title,
+            //        content : content,
+            //        priority : priority
+            //    }
+            //    addTask(task);
+            //}
         });
 
 

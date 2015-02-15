@@ -1,6 +1,6 @@
 
 var host = "http://127.0.0.1:5000/"
-
+// clean les champs
 $(document).ready(function() {
    getTasks();
     $("#loading").hide();  //gerer
@@ -43,10 +43,13 @@ $(document).ready(function() {
 displayTasks = function (data){
 
     if ( $("#list").length ) {
-        $("#list").remove();
+        $("#list").html("");
+    }else{
+        var list = $("<div id='list'> <div/>");
+        $( "#main_block" ).append(list);
     }
-    var list = $("<div id='list'> <div/>");
-    $( "#main_block" ).append(list);
+
+
 
    // console.log()
     var tasks = data.tasks;
@@ -67,13 +70,17 @@ displayTasks = function (data){
         taskHTML += "<select> <option value='low'>Basse</option> <option value='medium'>Moyenne</option> <option value='high'>Haute</option> </select>  ";
         taskHTML += "<button id='button-" + id + "'>Editer</button> </div> </div> </div>";
 
+        $( "#list" ).append(taskHTML);
         var test = "#" + id + " dl dd:nth-child(3)";
-        $(document).on("click", test, function(){
+        console.log(test);
+
+        $(test).on("click", function(){
             deleteTask(id);
         });
+
         test = "#" + id + " dl dd:nth-child(2)";
         var tmp = "#edit_block_" + id;
-        $(document).on("click", test, function(){
+        $(test).on("click",  function(){
             $("#" + id + " div p").hide();
             $(tmp + " input").val(title)
             $(tmp + " textarea").val(content);
@@ -81,7 +88,7 @@ displayTasks = function (data){
         });
 
         var edit = "#button-" + id;
-        $(document).on("click", edit, function(){
+        $(edit).on("click", function(){
 
             var titleEdit = $(tmp + " input").val();
             var contentEdit = $(tmp + " textarea").val();
@@ -117,7 +124,7 @@ displayTasks = function (data){
         //
         //
         //
-        $( "#list" ).append(taskHTML);
+
     });
 }
 

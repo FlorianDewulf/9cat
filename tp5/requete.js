@@ -63,7 +63,7 @@ displayTasks = function (data){
         taskHTML += "</a></dd> <dd class='bind-edit' ><a href='#'>Editer</a></dd> <dd class='bind-delete'><a href='#'>Supprimer</a></dd>";
         taskHTML += "<dd class='priority-" + priority + "'></dd>";
         taskHTML +=  "</dl> <div class='panel panel-override radius'>";
-        taskHTML += "<p>" + content + "</p>" + "<div id='edit_block_" + id + "' class='hidden'> <input type='text' placeholder='Title' value=''/> <textarea rows='6'></textarea>";
+        taskHTML += "<p>" + content + "</p>" + "<div id='edit_block_" + id + "' class='hidden'> <input type='text' placeholder='Title' /> <textarea rows='6'></textarea>";
         taskHTML += "<select> <option value='low'>Basse</option> <option value='medium'>Moyenne</option> <option value='high'>Haute</option> </select>  ";
         taskHTML += "<button id='button-" + id + "'>Editer</button> </div> </div> </div>";
 
@@ -75,37 +75,42 @@ displayTasks = function (data){
         var tmp = "#edit_block_" + id;
         $(document).on("click", test, function(){
             $("#" + id + " div p").hide();
-            $(tmp + " input").attr("placeholder", title);
+            $(tmp + " input").val(title)
             $(tmp + " textarea").val(content);
             $(tmp).show();
         });
 
-        $(document).on("click", "#button-" + id, function(){
+        var edit = "#button-" + id;
+        $(document).on("click", edit, function(){
 
-       //     var titleEdit = $(tmp + " input").val();
-            console.log("yop");
-            //var content = $("textarea").val();
-            //if (!$.trim(title) || !$.trim(content)) {
-            //
-            //    if (!$.trim(title)) {
-            //        $("#error").text("Le titre ne peut pas etre vide");
-            //    }
-            //    else {
-            //        $("#error").text("Le contenu ne peut pas etre vide");
-            //    }
-            //    $('#error').fadeIn("slow", function() { $(this).delay(2000).fadeOut("slow"); });
-            //}
-            //else {
-            //
-            //    var priority = $('select option:selected').val()
-            //
-            //    var task = {
-            //        title : title,
-            //        content : content,
-            //        priority : priority
-            //    }
-            //    addTask(task);
-            //}
+            var titleEdit = $(tmp + " input").val();
+            var contentEdit = $(tmp + " textarea").val();
+
+
+            if (!$.trim(titleEdit) || !$.trim(contentEdit)) {
+
+                if (!$.trim(titleEdit)) {
+                    $("#error").text("Le titre ne peut pas etre vide");
+                }
+                else {
+                    $("#error").text("Le contenu ne peut pas etre vide");
+                }
+                $('#error').fadeIn("slow", function() { $(this).delay(2000).fadeOut("slow"); });
+            }
+            else {
+
+                var priorityEdit = $(tmp + " select option:selected").val();
+                console.log(titleEdit);
+                console.log(contentEdit);
+                console.log(priorityEdit);
+                //
+                var task = {
+                    title : titleEdit,
+                    content : contentEdit,
+                    priority : priorityEdit
+                }
+               changeTask(task, id);
+            }
         });
 
 
@@ -147,15 +152,15 @@ addTask = function(task)
 
 }
 
-// binder blabla enlever hidden du edit_block_id
-changeTask = function(task)
+
+changeTask = function(task, id)
 {
     var newTask = {
         task : task
     }
 
     var request = $.ajax({
-        url: host + "tasks/" + "id",
+        url: host + "tasks/" + id,
         type: "PUT",
         dataType : "json",
         contentType : "application/json",

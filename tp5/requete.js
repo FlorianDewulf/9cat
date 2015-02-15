@@ -1,17 +1,17 @@
 
 var host = "http://127.0.0.1:5000/"
-// clean les champs
+
 $(document).ready(function() {
    getTasks();
     $("#loading").hide();  //gerer
     $("#block_content").show();
 
     $("#task_new").click(function() {
-        $('#new-wrapper').addClass('show-wrapper');     //chacher formulaire = enleverr classe
+        $('#new-wrapper').addClass('show-wrapper');
     });
 
     $("#task_create").click(function() {
-//chacher
+
         var title = $("input").val();
         var content = $("textarea").val();
         if (!$.trim(title) || !$.trim(content)) {
@@ -35,6 +35,8 @@ $(document).ready(function() {
             }
             addTask(task);
         }
+        $('#new-wrapper input').val("");
+        $('#new-wrapper textarea').val("");
 
     });
 
@@ -49,12 +51,7 @@ displayTasks = function (data){
         $( "#main_block" ).append(list);
     }
 
-
-
-   // console.log()
     var tasks = data.tasks;
-   // console.log(tasks[0]);
-   // return ;
     tasks.forEach(function (value, index) {
         var id = value.id;
         var content = value.task.content;
@@ -119,12 +116,6 @@ displayTasks = function (data){
                changeTask(task, id);
             }
         });
-
-
-        //
-        //
-        //
-
     });
 }
 
@@ -135,7 +126,7 @@ getTasks = function() {
     }).done(function (msg) {
         displayTasks(msg);
     }).fail(function () {
-            alert("error");
+        alert("Nous avons rencontré une erreur réseau ");
         });
 }
 
@@ -154,7 +145,8 @@ addTask = function(task)
     }).done(function (msg) {
         displayTasks(msg);
     }).fail(function () {
-        alert("error");
+        alert("Nous avons rencontré une erreur réseau ");
+
     });
 
 }
@@ -175,7 +167,8 @@ changeTask = function(task, id)
     }).done(function (msg) {
         displayTasks(msg)
     }).fail(function () {
-        alert("error");
+        alert("Nous avons rencontré une erreur réseau ");
+
     });
 
 }
@@ -188,7 +181,8 @@ deleteTask = function(id)
     }).done(function (msg) {
         displayTasks(msg)
     }).fail(function () {
-        alert("error");
+        alert("Nous avons rencontré une erreur réseau ");
+
     });
 
 }

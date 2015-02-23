@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
+    <script src="http://backbonejs.org/backbone-min.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="requete.js"></script>
   </head>
@@ -36,22 +37,22 @@
             </div>
           </div>
 
-          <div id="block_content" class="hidden">
-            <div class="new_task text-center">
-              <h1 class="subheader">Pour créer une tâche, cliquez sur ce <kbd id="task_new">+</kbd></h1>
-              <div id="new-wrapper">
-                <input type="text" placeholder="Title" value=""/>
-                <textarea rows="6"></textarea>
-                <select>
-                  <option value="low">Basse</option>
-                  <option value="medium">Moyenne</option>
-                  <option value="high">Haute</option>
-                </select>
-                <button id="task_create">Créer !</button>
-              </div>
-            </div>
+          <div id="tasks-container" class="hidden">
+            <!--<div class="new_task text-center">-->
+              <!--<h1 class="subheader">Pour créer une tâche, cliquez sur ce <kbd id="task_new">+</kbd></h1>-->
+              <!--<div id="new-wrapper">-->
+                <!--<input type="text" placeholder="Title" value=""/>-->
+                <!--<textarea rows="6"></textarea>-->
+                <!--<select>-->
+                  <!--<option value="low">Basse</option>-->
+                  <!--<option value="medium">Moyenne</option>-->
+                  <!--<option value="high">Haute</option>-->
+                <!--</select>-->
+                <!--<button id="task_create">Créer !</button>-->
+              <!--</div>-->
+            <!--</div>-->
 
-         
+
           </div>
         </div>
       </div>

@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="http://underscorejs.org/underscore-min.js"></script>
     <script src="http://backbonejs.org/backbone-min.js"></script>
-
-    <!--<script src="requete.js"></script>-->
     <script src="js/models/task.js"> </script>
     <script src="js/collections/tasks.js"> </script>
-    <script src="js/views/test.js"> </script>
   </head>
   <body>
     <header>
@@ -58,19 +55,17 @@
 
 
           <script id="task-template" type="text/template">
-            <p>lol</p>
-            <% _.each(tasks, function(task) { %>
-              <% console.log(tasks) %>
-              <div class='task' id='<% task.get("id") %>'>
+            <% _.each(tasks, function(taskItem) { %>
+              <div class='task' id='<%= taskItem.id %>'>
                 <dl class='sub-nav'>
-                  <dd class='active'><a href='#'><% task.get("title") %></a></dd>
+                  <dd class='active'><a href='#'><%= taskItem.task.title %></a></dd>
                   <dd class='bind-edit' ><a href='#'>Editer</a></dd>
                   <dd class='bind-delete'><a href='#'>Supprimer</a></dd>
-                  <dd class='priority-<% task.get("priority") %>'></dd>
+                  <dd class='priority-<%= taskItem.task.priority %>'></dd>
                 </dl>
                 <div class='panel panel-override radius'>
-                  <p><% task.get("content") %></p>
-                  <div id='edit_block_<% task.get("id") %>' class='hidden'>
+                  <p><%= taskItem.task.content %></p>
+                  <div id='edit_block_<%= taskItem.task.id %>' class='hidden'>
                     <input type='text' placeholder='Title' />
                     <textarea rows='6'></textarea>
                     <select>
@@ -78,16 +73,17 @@
                       <option value='medium'>Moyenne</option>
                       <option value='high'>Haute</option>
                     </select>
-                    <button id='button-<% task.get("id") %>'>Editer</button>
+                    <button id='button-<%= taskItem.id %>'>Editer</button>
                   </div>
                 </div>
               </div>
             <% }); %>
           </script>
 
-          <div id="tasks-container" class="hidden"></div>
+          <div id="tasks-container" class="not-hidden"></div>
         </div>
       </div>
     </main>
   </body>
+  <script src="js/views/test.js"> </script>
 </html>

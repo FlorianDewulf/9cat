@@ -7,20 +7,15 @@ var TaskList = Backbone.View.extend({
   },
 
   render: function() {
-    console.log("Waffen SS");
     var that = this;
     var tasks = new Tasks();
     tasks.fetch({
-      success: function(tasklist) {
-        console.log(tasklist.attributes.tasks);
-        var template = _.template($("#task-template").html(), { tasks: tasklist.attributes.tasks });
-        console.log(template);
-        that.$el.html(template);
+      success: function(tasks) {
+        var template = _.template($("#task-template").html(), { tasks: tasks });
+        that.$el.html(template({ tasks: tasks.attributes.tasks }));
       }
     });
   }
 });
 
 var taskList = new TaskList();
-
-console.log("mdr");

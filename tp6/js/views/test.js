@@ -13,9 +13,8 @@ var TaskList = Backbone.View.extend({
       success: function(tasks) {
         var template = _.template($("#task-template").html(), { tasks: tasks });
         that.$el.html(template({ tasks: tasks.attributes.tasks }));
+        that.$el.fadeIn();
       }
     });
   }
 });
-
-var taskList = new TaskList();

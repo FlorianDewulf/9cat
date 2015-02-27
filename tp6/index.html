@@ -10,6 +10,8 @@
     <script src="http://backbonejs.org/backbone-min.js"></script>
     <script src="js/models/task.js"> </script>
     <script src="js/collections/tasks.js"> </script>
+    <script src="js/views/test.js"> </script>
+    <script src="js/app.js"> </script>
   </head>
   <body>
     <header>
@@ -25,19 +27,6 @@
       <div class="row">
         <div id="main_block" class="large-11 large-centered columns content">
           <div data-alert class="alert-box alert radius" id="error"></div>
-          <!-- Pour l'arrivée sur la page le temps que l'Ajax s'éxecute -->
-          <div id="loading">
-            <div id="circular3dG">
-              <div id="circular3d_1G" class="circular3dG"></div>
-              <div id="circular3d_2G" class="circular3dG"></div>
-              <div id="circular3d_3G" class="circular3dG"></div>
-              <div id="circular3d_4G" class="circular3dG"></div>
-              <div id="circular3d_5G" class="circular3dG"></div>
-              <div id="circular3d_6G" class="circular3dG"></div>
-              <div id="circular3d_7G" class="circular3dG"></div>
-              <div id="circular3d_8G" class="circular3dG"></div>
-            </div>
-          </div>
 
           <div class="new_task text-center">
             <h1 class="subheader">Pour créer une tâche, cliquez sur ce <kbd id="task_new">+</kbd></h1>
@@ -80,10 +69,9 @@
             <% }); %>
           </script>
 
-          <div id="tasks-container" class="not-hidden"></div>
+          <div id="tasks-container" class="hidden"></div>
         </div>
       </div>
     </main>
   </body>
-  <script src="js/views/test.js"> </script>
 </html>

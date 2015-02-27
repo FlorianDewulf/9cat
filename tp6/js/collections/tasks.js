@@ -1,4 +1,5 @@
 
 var Tasks = Backbone.Model.extend({
-    model : Task
+    model : Task,
+    urlRoot: "http://localhost:5000/tasks"
 });

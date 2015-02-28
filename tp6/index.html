@@ -47,13 +47,13 @@
                 <div class='task' id='<%= model.attributes.id %>'>
                   <dl class='sub-nav'>
                     <dd class='active'><a href='#'><%= model.attributes.task.title %></a></dd>
-                    <dd class='bind-edit' ><a href='#'>Editer</a></dd>
+                    <dd class='bind-edit' id="edit-task"><a href='#'>Editer</a></dd>
                     <dd class='bind-delete' id="delete-task"><a href='#'>Supprimer</a></dd>
                     <dd class='priority-<%= model.attributes.task.priority %>'></dd>
                   </dl>
                   <div class='panel panel-override radius'>
                     <p><%= model.attributes.task.content %></p>
-                    <div id='edit_block_<%= model.attributes.task.id %>' class='hidden'>
+                    <div id='edit_block_<%= model.attributes.id %>' class='hidden'>
                       <input type='text' placeholder='Title' />
                       <textarea rows='6'></textarea>
                       <select>
@@ -61,7 +61,7 @@
                         <option value='medium'>Moyenne</option>
                         <option value='high'>Haute</option>
                       </select>
-                      <button id='button-<%= model.attributes.id %>'>Editer</button>
+                      <button id='edit-button'>Editer</button>
                     </div>
                   </div>
                 </div>

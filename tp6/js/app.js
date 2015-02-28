@@ -36,17 +36,14 @@ $(document).ready(function() {
         else {
 
             var priority = $('select option:selected').val()
-
-            var ta
-            var task = {
-                title: title,
-                content: content,
-                priority: priority
-            }
-         //   addTask(task);
+            var tmp = new Task(title, content, priority);
+            tmp.save();
+            taskCollection.push(tmp);
+            $('#new-wrapper input').val("");
+            $('#new-wrapper textarea').val("");
+            $('#new-wrapper').removeClass('show-wrapper');
         }
-        $('#new-wrapper input').val("");
-        $('#new-wrapper textarea').val("");
+
 
     });
 });

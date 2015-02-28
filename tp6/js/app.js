@@ -38,10 +38,11 @@ $(document).ready(function() {
             var priority = $('select option:selected').val()
             var tmp = new Task(title, content, priority);
             tmp.save();
-            taskCollection.push(tmp);
+            taskList.collection.push(tmp);
             $('#new-wrapper input').val("");
             $('#new-wrapper textarea').val("");
             $('#new-wrapper').removeClass('show-wrapper');
+
         }
 
 

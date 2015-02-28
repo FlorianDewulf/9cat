@@ -3,9 +3,10 @@ $(document).ready(function() {
 
         template: _.template($('#task-template').html()),
 
+
         events: {
             'click #delete-task': 'deleteTask',
-            'click #edit-task': 'editTask',
+            'click #edit-task': 'editTask'
 
         },
 
@@ -16,16 +17,22 @@ $(document).ready(function() {
                 if (this.collection.models[i].id == id)
                 {
                     var that = this;
-                    this.collection.models[i].destroy({success : function (model) {
-                        that.collection.remove(model);
-                        that.render();
+                    this.collection.models[i].destroy({success : function () {
+                        var thus = that;
+                        that.collection = new Tasks();
+                        that.collection.fetch().success(function(e) {
+                            thus.collection.formatData(e);
+                            thus.$el.empty();
+                            thus.render();
+                        });
                     }
                     });
-
                 }
             }
+
         },
 
+        
         editTask: function(e) {
             var id = $(e.currentTarget).parent().parent().attr('id');
 
@@ -46,10 +53,14 @@ $(document).ready(function() {
         initialize: function(params) {
             _.bindAll(this, 'render');
             this.collection.on('change', this.render, this);
+
         },
 
         render: function() {
             this.$el.html(this.template(this.collection.models));
+            this.collection.on('all', this.render, this);
+
+
         }
     });
 

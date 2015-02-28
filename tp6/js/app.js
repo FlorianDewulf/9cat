@@ -35,12 +35,13 @@ $(document).ready(function() {
 
             var priority = $('select option:selected').val()
 
+            var ta
             var task = {
                 title: title,
                 content: content,
                 priority: priority
             }
-            addTask(task);
+         //   addTask(task);
         }
         $('#new-wrapper input').val("");
         $('#new-wrapper textarea').val("");

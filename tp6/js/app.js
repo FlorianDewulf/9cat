@@ -11,10 +11,12 @@ $(document).ready(function() {
     el: $("#tasks-container")
   });
 
-  taskCollection.fetch().success(function() {
+  taskCollection.fetch().success(function(e) {
+    taskCollection.formatData(e);
     taskList.render();
     taskList.$el.fadeIn();
   });
+  
     $("#task_create").click(function() {
 
         var title = $("input").val();

@@ -3,13 +3,18 @@ Task = Backbone.Model.extend({
     defaults: {
       id: "",
       task: {
-        name: "",
+        title: "",
         content: "",
         priority: ""
       }
     },
 
-    initialize: function (_name, _content, _priority) {
-        this.set({name: _name, content: _content, priority: _priority});
+    initialize: function (_name, _content, _priority, _id) {
+        this.set({
+          id: _id,
+          task: {
+            title: _name, content: _content, priority: _priority
+          }
+        });
     }
 });

@@ -16,7 +16,7 @@ $(document).ready(function() {
     taskList.render();
     taskList.$el.fadeIn();
   });
-  
+
     $("#task_create").click(function() {
 
         var title = $("input").val();

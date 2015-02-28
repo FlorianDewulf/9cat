@@ -5,6 +5,7 @@ $(document).ready(function() {
 
     initialize: function(params) {
       _.bindAll(this, 'render');
+      this.collection.on('change', this.render, this);
     },
 
     render: function() {

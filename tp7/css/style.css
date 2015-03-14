@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.blue-sky {
+  background: rgb(21, 199, 255);
+}
+
+div.city.panel {
+  height: 300px;
+  margin: 0;
+}
+
+.panel.city > h1 {
+  line-height: 200px;
+  font-size: 65px;
+}

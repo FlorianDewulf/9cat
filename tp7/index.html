@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Weather app</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+  </head>
+  <body>
+    <p>Le conteneur contient ça :</p>
+    <hr />
+    <div id="meteo-list"></div>
+    <hr />
+    <script id="meteo-tpl" type="text/template">
+      <% _.each(week, function(day){ %>
+          <div class="meteo">
+            <p><%= JSON.stringify(day) %></p>
+          </div>
+      <% }); %>
+    </script>
+  </body>
+  <!-- Scripts need to be at the end for templating ! -->
+  <script src="js/models/day.js"></script>
+  <script src="js/models/location.js"></script>
+  <script src="js/collections/week.js"></script>
+  <script src="js/views/meteo_view.js"></script>
+  <script src="js/app.js"></script>
+</html>

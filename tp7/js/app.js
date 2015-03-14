@@ -2,7 +2,7 @@ $(function () {
     var weekCollection = new WeekCollection({});
     weekCollection.url = 'http://api.wunderground.com/api/a6198ab9a542b75f/forecast10day/lang:FR/q/autoip.json';
 
-    var MeteoView = new TaskView({
+    var meteoView = new MeteoView({
         collection: weekCollection
     });
 

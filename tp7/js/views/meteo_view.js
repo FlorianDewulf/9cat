@@ -17,6 +17,8 @@ $(function() {
             });
         },
         render: function() {
+          console.log(this.collection);
+
             // Pass the collection (as a JSON) to the template to be rendered.
             this.$el.html(this.template({
                 week: this.collection.toJSON()

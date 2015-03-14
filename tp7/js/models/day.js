@@ -1,5 +1,7 @@
 (function() {
     DayModel = Backbone.Model.extend({
+
+
         defaults: {
         },
         parse: function(response) {

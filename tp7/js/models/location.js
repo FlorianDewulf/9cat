@@ -1,5 +1,5 @@
 (function() {
-    DayModel = Backbone.Model.extend({
+    LocationModel = Backbone.Model.extend({
         defaults: {
         },
         parse: function(response) {

@@ -16,10 +16,9 @@
     <div id="meteo-list"></div>
     <hr />
     <script id="meteo-tpl" type="text/template">
-        
+      <p><%= location.city %></p>
       <% _.each(week, function(day){ %>
           <div class="meteo">
-            <!--<p><%= JSON.stringify(day) %></p>-->
               <p><%= day.date.weekday %> <%= day.date.day %> <%= day.date.monthname %> </p>
               <img src=<%= day.icon_url %>>
               <p><%= day.high.celsius %></p>

@@ -2,7 +2,9 @@ $(function() {
     MeteoView = Backbone.View.extend({
         template: _.template($('#meteo-tpl').html()),
         el: "#meteo-list",
-        initialize: function() {
+        initialize: function(params) {
+          this.location = params.location;
+
             // You'll see the `_.bindAll()` function in almost every `initialize`.
             // See this StackOverflow [answer](http://stackoverflow.com/a/6396224/884338 "JSONP") to why `_.bindAll()` is necessary.
             _.bindAll(this, 'render');
@@ -17,10 +19,9 @@ $(function() {
             });
         },
         render: function() {
-          console.log(this.collection);
-
             // Pass the collection (as a JSON) to the template to be rendered.
             this.$el.html(this.template({
+                location: this.location.toJSON(),
                 week: this.collection.toJSON()
             }));
         }

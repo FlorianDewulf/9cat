@@ -3,9 +3,7 @@
         defaults: {
         },
         parse: function(response) {
-            // Make sure the id is valid.
-            this.id = response.id;
-            return response;
+            return response.location;
         },
         validate: function (attrs) {
             return true;

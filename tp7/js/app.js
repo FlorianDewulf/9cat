@@ -2,8 +2,15 @@ $(function () {
     var weekCollection = new WeekCollection({});
     weekCollection.url = 'http://api.wunderground.com/api/a6198ab9a542b75f/forecast10day/lang:FR/q/autoip.json';
 
+    var locationObj = new LocationModel({});
+    locationObj.url = 'http://api.wunderground.com/api/a6198ab9a542b75f/geolookup/lang:FR/q/autoip.json';
+    locationObj.fetch().complete(function() {
+
+    });
+
     var meteoView = new MeteoView({
-        collection: weekCollection
+        collection: weekCollection,
+        location: locationObj
     });
 
     // We add `.complete` callback to render the views only after the `fetch()` is completed.

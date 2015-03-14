@@ -9,23 +9,28 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone.js"></script>
     <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <p>Le conteneur contient ça :</p>
-    <hr />
-    <div id="meteo-list"></div>
-    <hr />
-    <script id="meteo-tpl" type="text/template">
-      <p><%= location.city %></p>
-      <% _.each(week, function(day){ %>
-          <div class="meteo">
-              <p><%= day.date.weekday %> <%= day.date.day %> <%= day.date.monthname %> </p>
-              <img src=<%= day.icon_url %>>
-              <p><%= day.high.celsius %></p>
-              <p><%= day.low.celsius %></p>
-          </div>
-      <% }); %>
-    </script>
+    <div class="large-12 text-center">
+      <div id="meteo-list" class="blue-sky"></div>
+      <script id="meteo-tpl" type="text/template">
+        <div class="panel callout radius city large-12 blue-sky">
+          <h1><%= location.city %></h1>
+        </div>
+        <div class="row">
+          <% _.each(week, function(day){ %>
+              <div class="large-4 columns <%= (day == week[week.length - 1]) ? 'end' : '' %>">
+                  <h3><%= day.date.weekday %> <%= day.date.day %> <%= day.date.monthname %></h3>
+                  <img src="<%= day.icon_url %>" />
+                  <p><span>Température minimale :</span> <span><%= day.high.celsius %></span></p>
+                  <p><span>Température maximale :</span> <span><%= day.low.celsius %></span></p>
+                  <hr />
+              </div>
+          <% }); %>
+        </script>
+      </div>
+    </div>
   </body>
   <!-- Scripts need to be at the end for templating ! -->
   <script src="js/models/day.js"></script>

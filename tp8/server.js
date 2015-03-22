@@ -2,23 +2,15 @@ var express = require('express');
 var app = express(); // Plus besoin de se soucier
 // de la couche HTTP… express() s’en occupe!
 
-var tasks = [];
+var tasks = require('./routes/tasks');
 
-app.get('/tasks', function(req, res) {
-	res.send("lol");
-});
+app.get('/tasks', tasks.findAll);
 
-app.post('/tasks', function(req, res) {
-	res.send("mdr");
-});
+app.post('/tasks', tasks.save);
 
-app.put('/tasks/:id', function(req, res) {
-	res.send("ptdr");
-});
+app.put('/tasks/:id', tasks.update);
 
-app.delete('/tasks/:id', function(req, res) {
-	res.send("waffen SS");
-});
+app.delete('/tasks/:id', tasks.destroy);
 
 
 app.listen(3000);

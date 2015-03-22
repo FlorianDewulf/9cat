@@ -16,5 +16,11 @@ exports.update = function(req, res) {
 };
 
 exports.destroy = function(req, res) {
-	//res.send({id:req.params.id, name: "HURRDURR", description: "description"});
+	db.forEach(function(elem, index) {
+		if (elem.id == req.body.id) {
+			db.splice(index, 1);
+			return;
+		}
+	});
+	res.send({tasks: db});
 };

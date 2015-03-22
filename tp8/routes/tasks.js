@@ -24,7 +24,6 @@ exports.destroy = function(req, res) {
 	db.forEach(function(elem, index) {
 		if (elem.id == req.params.id) {
 			db.splice(index, 1);
-			return;
 		}
 	});
 	res.send({tasks: db});

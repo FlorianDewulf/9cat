@@ -1,17 +1,27 @@
 var express = require('express');
-var app = express(); // Plus besoin de se soucier
-// de la couche HTTP… express() s’en occupe!
+var cors = require('cors');
+
+var app = express();
 
 var tasks = require('./routes/tasks');
 
+var corsOptions = {
+    origin: '*',
+    methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'UPDATE'],
+    credentials: true
+};
+
+app.use(cors(corsOptions));
+
+
 app.get('/tasks', tasks.findAll);
 
-app.post('/tasks', tasks.save);
+app.post('/tasks/:id', tasks.save);
 
 app.put('/tasks/:id', tasks.update);
 
 app.delete('/tasks/:id', tasks.destroy);
 
 
-app.listen(3000);
-console.log('Listening on port 3000...');
+app.listen(5000);
+console.log('Listening on port 5000...');

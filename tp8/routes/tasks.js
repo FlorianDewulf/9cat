@@ -1,7 +1,9 @@
 
 
+var db = [];
 exports.findAll = function(req, res) {
-	res.send(req.app.locals.db);
+	console.log(db.length);
+	res.send(db);
 };
 
 exports.save = function(req, res) {
@@ -9,7 +11,9 @@ exports.save = function(req, res) {
 	// console.log(req.body.task);
 
 	var tmp = {id : req.body.id, task : req.body.task };
-	req.app.locals.db.push(tmp);
+	db.push(tmp);
+
+	console.log(db.length);
 	res.send(tmp);
 	//res.send({id:req.params.id, name: "HURRDURR", description: "description"});
 };

@@ -11,19 +11,18 @@ exports.save = function(req, res) {
 };
 
 exports.update = function(req, res) {
-
 	db.forEach(function(task) {
     if (task.id == req.body.id){
     	task.id = req.body.id;
     	task.task = req.body.task;
     	res.send(task);
-    }
+    	}
 	});
 };
 
 exports.destroy = function(req, res) {
 	db.forEach(function(elem, index) {
-		if (elem.id == req.body.id) {
+		if (elem.id == req.params.id) {
 			db.splice(index, 1);
 			return;
 		}

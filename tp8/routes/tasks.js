@@ -18,8 +18,7 @@ exports.update = function(req, res) {
     	task.task = req.body.task;
     	res.send(task);
     }
-});
-	//res.send({id:req.params.id, name: "HURRDURR", description: "description"});
+	});
 };
 
 exports.destroy = function(req, res) {

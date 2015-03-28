@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <fieldset class="loginBox">
+    <fieldset id="loginBox">
       <legend>Connexion au service secret</legend>
       <p class="clearfix">
         <label>Nom :</label>
@@ -20,6 +20,18 @@
       </p>
       <p class="text-center buttonContainer">
         <span class="button" id="connexionButton">Connexion</span>
+      </p>
+    </fieldset>
+
+    <fieldset id="infoBox" class="hidden">
+      <legend>Informations personnelles</legend>
+      <p class="clearfix">
+        <label>Nom :</label>
+        <span id="nameInfo"></span>
+      </p>
+      <p class="clearfix">
+        <label>Email :</label>
+        <span id="emailInfo"></span>
       </p>
     </fieldset>
   </body>

@@ -3,7 +3,11 @@
   margin: 0;
 }
 
-.loginBox {
+.hidden {
+  display: none;
+}
+
+#loginBox, #infoBox {
   min-width: 300px;
   width: 40%;
   margin: 0 auto;
@@ -11,7 +15,7 @@
   margin-top: 10%;
 }
 
-.loginBox legend {
+#loginBox legend, #infoBox legend {
   padding: 5px;
   border: dotted 1px black;
   font-size: 16px;
@@ -19,12 +23,12 @@
   font-family: monospace;
 }
 
-.loginBox p {
+#loginBox p, #infoBox p {
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
-.loginBox label {
+#loginBox label, #infoBox label {
   min-width: 20%;
   float: left;
   height: 30px;
@@ -33,7 +37,7 @@
   font-family: cursive;
 }
 
-.loginBox input {
+#loginBox input, #infoBox #nameInfo, #infoBox #emailInfo {
   min-width: 75%;
   float: left;
   height: 30px;

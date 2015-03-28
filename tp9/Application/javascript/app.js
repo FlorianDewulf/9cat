@@ -16,6 +16,10 @@ $(document).ready(function() {
     });
   });
 
+  if ($.cookie('token') !== undefined) {
+    loadProfile();
+  }
+
   function to64(value) {
     return ($.base64.btoa(value));
   }
@@ -28,7 +32,10 @@ $(document).ready(function() {
       dataType : "json",
       contentType : "application/json"
     }).done(function( msg ) {
-      console.log(msg);
+      $("#loginBox").remove();
+      $("#infoBox").removeClass("hidden");
+      $("#nameInfo").html(msg.user);
+      $("#emailInfo").html(msg.mail);
     });
   }
 });

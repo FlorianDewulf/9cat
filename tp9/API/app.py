@@ -65,14 +65,14 @@ def get_user_profile():
 	if not request.json or not 'token' in request.json:
 		abort(400);
 
-		token = request.json['token']; 
-		if is_token_valid(token) == False:
-			abort(403)
-		else:
-			for user in users :
-				if generate_token(user['username'], user['password']) == token:
-					return jsonify( { 'token': token, 'user' : user['username'] } ), 201
-			abort(403)
+	token = request.json['token']; 
+	if is_token_valid(token) == False:
+		abort(403)
+	else:
+		for user in users :
+			if generate_token(user['username'], user['password']) == token:
+				return jsonify( { 'token': token, 'user' : user['username'] } ), 201
+		abort(403)
 
 def generate_token(username, password):
 	return base64.b64encode(username + password)

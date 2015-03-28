@@ -60,8 +60,23 @@ def authorize():
 	else:
 		abort(401)
 
+@app.route('/userprofile', methods = ['GET'])
+def get_user_profile():
+	if not request.json or not 'token' in request.json:
+		abort(400);
+
+		token_from_json = request.json['token']; 
+		if is_token_valid(token_from_json) == False
+			abort(403)
+		else
+			for user in users :
+				if generate_token(user['username'], user['password']) == token_from_json:
+					return jsonify( { 'token': token_from_json, 'user' : user['username'] } ), 201
+			abort(403)
+
 def generate_token(username, password):
 	return base64.b64encode(username + password)
+
 
 def is_token_valid(token):
 	for user in users :
@@ -70,10 +85,9 @@ def is_token_valid(token):
 	else:
 		return False
 
-'''	TODO!!
-@app.route('/userprofile', methods = ['GET'])
-def get_user_profile():
-'''
+
+
+
 
 if __name__ == '__main__':
     app.run(debug = True)

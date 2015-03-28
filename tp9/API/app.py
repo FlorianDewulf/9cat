@@ -71,7 +71,7 @@ def get_user_profile():
 	else:
 		for user in users :
 			if generate_token(user['username'], user['password']) == token:
-				return jsonify( { 'token': token, 'user' : user['username'] } ), 201
+				return jsonify( { 'token': token, 'user' : user['username'], 'mail' : user['email'] } ), 201
 		abort(403)
 
 def generate_token(username, password):

@@ -26,7 +26,7 @@ def after_request(data):
 	response = make_response(data)
 	response.headers['Content-Type'] = 'application/json'
 	response.headers['Access-Control-Allow-Origin'] = '*'
-	response.headers['Access-Control-Allow-Headers'] = "Origin, X-Requested-With, Content-Type, Accept"
+	response.headers['Access-Control-Allow-Headers'] = "Authorization, Origin, X-Requested-With, Content-Type, Accept"
 	return response
 
 @app.errorhandler(400)
@@ -62,10 +62,10 @@ def authorize():
 
 @app.route('/userprofile', methods = ['GET'])
 def get_user_profile():
-	if not request.args or not 'token' in request.args:
+	if not request.headers or not request.headers.get('Authorization'):
 		abort(400);
 
-	token = request.args['token'];
+	token = request.headers['Authorization'];
 	if is_token_valid(token) == False:
 		abort(403)
 	else:

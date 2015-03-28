@@ -2,6 +2,7 @@ $(document).ready(function() {
   $.base64.utf8encode = true;
 
   $("#connexionButton").on('click', function() {
+    $("#loading").html("Connexion automatique en cours, veuillez patienter...")
     $.ajax({
       method: "POST",
       url: "http://localhost:5000/authorize",
@@ -13,10 +14,13 @@ $(document).ready(function() {
         $.cookie('token', msg.token);
         loadProfile();
       }
+    }).fail(function(msg) {
+        $("#loading").html("La connexion a echoue");
     });
   });
 
   if ($.cookie('token') !== undefined) {
+    $("#loading").html("Connexion automatique en cours, veuillez patienter...")
     loadProfile();
   }
 
@@ -28,7 +32,13 @@ $(document).ready(function() {
     $.ajax({
       method: "GET",
       url: "http://localhost:5000/userprofile",
-      data: { token: $.cookie('token') },
+      /*beforeSend : function(xhr) {
+        // set header
+        xhr.setRequestHeader("Authorization", $.cookie('token'));
+      },*/
+      headers: {
+        "Authorization": $.cookie('token')
+      },
       dataType : "json",
       contentType : "application/json"
     }).done(function( msg ) {
@@ -36,6 +46,8 @@ $(document).ready(function() {
       $("#infoBox").removeClass("hidden");
       $("#nameInfo").html(msg.user);
       $("#emailInfo").html(msg.mail);
+    }).fail(function(msg) {
+        $("#loading").html("La connexion a échoué");
     });
   }
 });

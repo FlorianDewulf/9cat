@@ -66,9 +66,9 @@ def get_user_profile():
 		abort(400);
 
 		token = request.json['token']; 
-		if is_token_valid(token) == False
+		if is_token_valid(token) == False:
 			abort(403)
-		else
+		else:
 			for user in users :
 				if generate_token(user['username'], user['password']) == token:
 					return jsonify( { 'token': token, 'user' : user['username'] } ), 201

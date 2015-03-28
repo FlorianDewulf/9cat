@@ -32,7 +32,7 @@ def after_request(data):
 @app.errorhandler(400)
 def bad_request(error):
     return make_response(jsonify( { 'error': 'Bad Request' } ), 400)
-	
+
 @app.errorhandler(401)
 def unauthorized(error):
     return make_response(jsonify( { 'error': 'Wrong username or password.' } ), 401)
@@ -44,13 +44,14 @@ def forbidden(error):
 
 @app.route('/authorize', methods = ['POST'])
 def authorize():
+	print request.json
 	if not request.json or not 'username' in request.json or not 'password' in request.json:
 		abort(400)
-		
+
 	username = request.json['username']
 	password = request.json['password']
 	decoded_password = base64.b64decode(password)
-	
+
 	for user in users :
 		if user['username'] == username:
 			if user['password'] == decoded_password:
@@ -65,7 +66,7 @@ def get_user_profile():
 	if not request.json or not 'token' in request.json:
 		abort(400);
 
-	token = request.json['token']; 
+	token = request.json['token'];
 	if is_token_valid(token) == False:
 		abort(403)
 	else:

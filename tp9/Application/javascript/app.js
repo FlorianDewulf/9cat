@@ -4,8 +4,9 @@ $(document).ready(function() {
   $("#connexionButton").on('click', function() {
     $.ajax({
       method: "POST",
-      url: "localhost:5000/authorize",
-      data: { username: $("#nameInput").val(), password: to64($("#passwordInput").val()) }
+      url: "http://localhost:5000/authorize",
+      data: { username: $("#nameInput").val(), password: to64($("#passwordInput").val()) },
+      contentType: "application/json"
     }).done(function( msg ) {
       console.log(msg);
     });

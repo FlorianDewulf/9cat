@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+}
+
+#login {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.modal {
+  margin-top: 10%;
+  height: 30%;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #EEE;
+  padding: 10% 0;
+  text-align: center;
+}
+
+.modal p {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 10%;
+  font-family: cursive;
+}
+
+.modal input, .modal .btn {
+  width: 80%;
+  height: 30px;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.btn {
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  font-family: 'Courier New';
+  color: #ffffff;
+  font-size: 20px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.authenticate {
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.container {
+  overflow: auto;
+  height: 660px;
+}
+
+.bottom-bar {
+  min-height: 60px;
+  width: 100%;
+  background: #333;
+}
+
+.bottom-bar input {
+  margin-top: 10px;
+  margin-left: 40px;
+  height: 40px;
+  min-width: 250px;
+  width: 65%;
+  font-size: 16px;
+}
+
+#msg-container {
+  width: 100%;
+  list-style-type: none;
+  overflow: auto;
+}
+
+#msg-container li {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+#msg-container li p {
+  min-height:25px;
+}
+
+.from {
+  background: aliceblue;
+  padding: 5px 20px;
+  line-height: 25px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.msg {
+  padding: 10px 5px;
+  background: rgb(161, 244, 255);
+  border-top: 1px solid #333;
+}
